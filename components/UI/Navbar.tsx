@@ -30,7 +30,7 @@ export const Navbar = () => {
                           alt="Logo Compañía"
                           width={90}
                           height={80}
-                          className="h-20 w-auto sm:h-16"
+                          className="w-auto"
                           src="/logo.png"
                         />
                       </a>
@@ -75,7 +75,7 @@ export const Navbar = () => {
                         alt="Logo Compañía"
                         width={90}
                         height={80}
-                        className="h-20 w-auto sm:h-16"
+                        className="w-auto"
                         src="/logo.png"
                       />
                     </div>

@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   return (
     <div className="bg-white">
       <Head>
-        <title>Luxx Art - Inicio</title>
+        <title>Luxx Art✨ - Inicio</title>
         <meta name="description" content={'Pagina de inicio'} />
       </Head>
         <Header/>

@@ -41,7 +41,7 @@ export function Header() {
                           alt="Logo Compañía"
                           width={90}
                           height={80}
-                          className="h-20 w-auto sm:h-16"
+                          className="w-auto"
                           src="/logo.png"
                         />
                       </a>
@@ -86,7 +86,7 @@ export function Header() {
                         alt="Logo Compañía"
                         width={90}
                         height={80}
-                        className="h-20 w-auto sm:h-16"
+                        className="w-auto"
                         src="/logo.png"
                       />
                     </div>
@@ -156,7 +156,7 @@ export function Header() {
         <Image
           layout="fill"
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full"
-          src="/img/carrusel/c6.jpeg"
+          src="/img/carrusel/retrato2.webp"
           alt="Cuadro de Spiderman"
         />
       </div>

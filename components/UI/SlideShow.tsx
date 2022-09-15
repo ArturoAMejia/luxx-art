@@ -4,23 +4,23 @@ import styles from "./SlideShow.module.css";
 
 const fadeImages = [
   {
-    url: "/img/carrusel/c2.jpg",
+    url: "/img/carrusel/collar.webp",
     caption: "Second Slide",
   },
   {
-    url: "/img/carrusel/c2.jpeg",
+    url: "/img/carrusel/collar2.webp",
     caption: "Second Slide",
   },
   {
-    url: "/img/carrusel/c3.jpeg",
+    url: "/img/carrusel/retrato1.webp",
     caption: "Second Slide",
   },
   {
-    url: "/img/carrusel/c5.jpeg",
+    url: "/img/carrusel/retrato2.webp",
     caption: "Second Slide",
   },
   {
-    url: "/img/carrusel/c5.jpg",
+    url: "/img/carrusel/cover1.webp",
     caption: "Second Slide",
   },
 ];
