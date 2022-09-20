@@ -1,17 +1,18 @@
-import React from 'react'
-import { Carousel } from '../components/Carousel'
-import { Layout } from '../components/layout/Layout'
+import { Card } from "../components/Card";
+import { Layout } from "../components/layout/Layout";
+import { covers, lienzos, products , publicidad} from "../helpers/products";
 
 const GaleriaPage = () => {
   return (
     <>
-    <Layout title='Galería' pageDescription='Página de Galería'>
-
-      <h1>Pagina de Galeria</h1>  
-      <Carousel/>
-    </Layout>
+      <Layout title="Galería" pageDescription="Página de Galería">
+        <Card title="Sección de Collares y pulseras" products={products} />
+        <Card title="Sección de Lienzos" products={lienzos} />
+        <Card title="Sección de Covers" products={covers} />
+        <Card title="Sección de Publicidad y Detalles" products={publicidad} />
+      </Layout>
     </>
-  )
-}
+  );
+};
 
-export default GaleriaPage 
+export default GaleriaPage;
