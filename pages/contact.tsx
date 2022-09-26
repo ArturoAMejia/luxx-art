@@ -43,6 +43,7 @@ const Contact = () => {
 
   return (
     <Layout title="Contacto" pageDescription="Página de contacto">
+
       <form onSubmit={sendEmail}>
         <div className="hero min-h-screen bg-base">
           <div className="flex-col justify-center hero-content lg:flex-row">

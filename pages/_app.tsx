@@ -1,13 +1,13 @@
 import "../styles/globals.css";
-import "../styles/animations.css"
+import "../styles/animations.css";
 import type { AppProps } from "next/app";
-import { ToastContainer } from "react-toastify";
+import { CartProvider } from "react-use-cart";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-      <Component {...pageProps} >
-        <ToastContainer/>
-      </Component>
+    <CartProvider>
+      <Component {...pageProps} />
+    </CartProvider>
   );
 }
 

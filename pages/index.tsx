@@ -1,25 +1,23 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { title } from "process";
-import { Fade, Zoom } from "react-awesome-reveal";
-import { Layout } from "../components/layout/Layout";
+import { Zoom } from "react-awesome-reveal";
 import { Footer, Header } from "../components/UI";
 import { Hero } from "../components/UI/Hero";
-
+import Navbar from "../components/UI/Navbar";
 
 const Home: NextPage = () => {
   return (
     <div className="bg-white">
       <Head>
         <title>Luxx Art✨ - Inicio</title>
-        <meta name="description" content={'Pagina de inicio'} />
+        <meta name="description" content={"Pagina de inicio"} />
       </Head>
-        <Header/>
-
+      <Navbar />
+      <Header />
       <Zoom>
         <Hero />
       </Zoom>
-    <Footer/>
+      <Footer />
     </div>
   );
 };

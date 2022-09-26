@@ -1,6 +1,11 @@
 import Head from "next/head";
 import React, { FC } from "react";
-import { Footer, Navbar} from '../UI'
+import { ToastContainer } from "react-toastify";
+import { Footer } from '../UI'
+import Navbar from "../UI/Navbar";
+
+import "react-toastify/dist/ReactToastify.css";
+
 
 interface Props {
   title: string;
@@ -23,6 +28,7 @@ export const Layout: FC<Props> = ({ children, title, pageDescription }) => {
       <footer>
         <Footer />
       </footer>
+      <ToastContainer/>
     </>
   );
 };

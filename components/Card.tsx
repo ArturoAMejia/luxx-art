@@ -1,4 +1,6 @@
 import React, { FC } from "react";
+import { toast } from "react-toastify";
+import { useCart } from "react-use-cart";
 import { IProduct } from "../helpers/interfaces";
 import { CardProduct } from "./CardProduct";
 
@@ -8,6 +10,11 @@ interface Props {
 }
 
 export const Card: FC<Props> = ({ title, products }) => {
+  const { addItem } = useCart();
+  const addCart = (item: IProduct) => {
+    addItem(item);
+    toast.success("Producto añadido correctamente");
+  };
   return (
     <div className="bg-white">
       <div className="pb-10 mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
