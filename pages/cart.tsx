@@ -5,12 +5,19 @@ import {
   MinusCircleIcon,
   QuestionMarkCircleIcon,
 } from "@heroicons/react/24/solid";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect } from "react";
 import { useCart } from "react-use-cart";
 import { Layout } from "../components/layout/Layout";
 
 export default function Example() {
   const { items, cartTotal, updateItemQuantity, removeItem } = useCart();
-  console.log(items);
+
+  useEffect(() => {
+    if (items.length > 0)
+      localStorage.setItem("react-use-cart", JSON.stringify(items));
+  }, [items]);
   return (
     <Layout title={"Carrito"} pageDescription={"Página de carrito"}>
       <div className="bg-white">
@@ -36,11 +43,14 @@ export default function Example() {
                   {items.map((item, itemIdx) => (
                     <li key={item.id} className="flex py-6 sm:py-10">
                       <div className="flex-shrink-0">
-                        <img
-                          src={item.imageSrc}
-                          alt={item.imageAlt}
-                          className="w-24 h-24 rounded-md object-center object-cover sm:w-48 sm:h-48"
-                        />
+                        <div className="rounded-md object-center object-cover sm:w-48 sm:h-48">
+                          <Image
+                            width={96}
+                            height={96}
+                            src={item.imageSrc}
+                            alt={item.imageAlt}
+                          />
+                        </div>
                       </div>
 
                       <div className="ml-4 flex-1 flex flex-col justify-between sm:ml-6">
@@ -128,13 +138,13 @@ export default function Example() {
                   <div className="flex items-center justify-between">
                     <dt className="text-sm text-gray-600">Subtotal</dt>
                     <dd className="text-sm font-medium text-gray-900">
-                      ${cartTotal}
+                      C${cartTotal}.00
                     </dd>
                   </div>
 
                   <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                     <dt className="flex text-sm text-gray-600">
-                      <span>Tax estimate</span>
+                      <span>Impuesto</span>
                       <a
                         href="#"
                         className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500"
@@ -149,12 +159,12 @@ export default function Example() {
                       </a>
                     </dt>
                     <dd className="text-sm font-medium text-gray-900">
-                      ${cartTotal * 0.15}
+                      C${cartTotal * 0.15}
                     </dd>
                   </div>
                   <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                     <dt className="text-base font-medium text-gray-900">
-                      Order total
+                      Total
                     </dt>
                     <dd className="text-base font-medium text-gray-900">
                       C${cartTotal * 0.15 + cartTotal}
@@ -163,12 +173,14 @@ export default function Example() {
                 </dl>
 
                 <div className="mt-6">
+                  <Link href="/checkout">
                   <button
-                    type="submit"
+                    type="button"
                     className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
-                  >
+                    >
                     Checkout
                   </button>
+                    </Link>
                 </div>
               </section>
             )}

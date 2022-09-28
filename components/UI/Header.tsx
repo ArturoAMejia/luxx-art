@@ -79,20 +79,20 @@ export function Header() {
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <a
-                    href="#"
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-[#E74775] px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
-                  >
-                    Acerca de
-                  </a>
+                  <Link href="/acerca">
+                    <a
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-[#E74775] px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
+                    >
+                      Acerca de
+                    </a>
+                  </Link>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <a
-                    href="#"
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-[#F9C148] px-8 py-3 text-base font-medium text-[#14525E] hover:bg-[#FED06A] md:py-4 md:px-10 md:text-lg"
-                  >
-                    Contacto
-                  </a>
+                  <Link href="/contact">
+                    <a className="flex w-full items-center justify-center rounded-md border border-transparent bg-[#F9C148] px-8 py-3 text-base font-medium text-[#14525E] hover:bg-[#FED06A] md:py-4 md:px-10 md:text-lg">
+                      Contacto
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>

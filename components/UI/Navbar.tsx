@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useCart } from "react-use-cart";
+import Image from "next/image";
 
 const navigation = [
   { name: "Inicio", href: "/", current: true },
@@ -16,7 +17,7 @@ const navigation = [
 ];
 
 export default function Navbar() {
-  const {totalItems}= useCart()
+  const { totalItems } = useCart();
   return (
     <Disclosure as="nav" className="bg-white">
       {({ open }) => (
@@ -36,23 +37,30 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="block h-20 w-auto lg:hidden"
-                    src="/logo.png"
-                    alt="Your Company"
-                  />
-                  <img
-                    className="hidden h-20 w-auto lg:block"
-                    src="/logo.png"
-                    alt="Your Company"
-                  />
+                  <div className="block  lg:hidden">
+                    <Image
+                      width={100}
+                      height={80}
+                      src="/logo.png"
+                      alt="Your Company"
+                    />
+                  </div>
+
+                  <div className="hidden lg:block">
+                    <Image
+                      width={100}
+                      height={80}
+                      src="/logo.png"
+                      alt="Your Company"
+                    />
+                  </div>
                 </div>
                 <div className="hidden lg:block py-10 px-3">
                   {navigation.map((item) => (
                     <Link key={item.name} href={item.href}>
                       <a
                         className="text-gray-600 hover:text-gray-900
-                          px-3 py-2 rounded-md text-sm font-medium"
+                          px-3 py-2 rounded-md text-base font-medium"
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
@@ -70,7 +78,8 @@ export default function Navbar() {
                     <a className="static">
                       <ShoppingCartIcon className="h-6 w-6 text-black" />
                       <span className="absolute items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-gray-800 top-2">
-                        {totalItems > 9 ? "9+" : totalItems}</span>
+                        {totalItems > 9 ? "9+" : totalItems}
+                      </span>
                     </a>
                   </Link>
                 </button>

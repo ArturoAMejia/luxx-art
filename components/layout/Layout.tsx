@@ -15,7 +15,7 @@ interface Props {
 
 export const Layout: FC<Props> = ({ children, title, pageDescription }) => {
   return (
-    <>
+    <div className="bg-white">
       <Head>
         <title>Luxx Art✨ - {title}</title>
         <meta name="description" content={pageDescription} />
@@ -25,10 +25,10 @@ export const Layout: FC<Props> = ({ children, title, pageDescription }) => {
       </Head>
       <Navbar />
       <main className="bg-white">{children}</main>
-      <footer>
+      <footer className="h-full">
         <Footer />
       </footer>
       <ToastContainer/>
-    </>
+    </div>
   );
 };
