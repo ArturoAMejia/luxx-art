@@ -71,11 +71,9 @@ export function Header() {
                 </span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Sapiente reprehenderit, atque quasi nisi laudantium optio
-                voluptates! Rem atque unde enim debitis doloremque consequatur,
-                sit inventore nostrum quos, nam sequi? Aliquid amet iste quo
-                natus. Earum excepturi maiores ipsam consectetur aspernatur!
+                Comenzá donde estás. <br />
+                Usá lo que tenes. <br />
+                Haz lo que puedas.
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
