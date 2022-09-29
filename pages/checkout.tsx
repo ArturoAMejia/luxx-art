@@ -7,8 +7,34 @@ import { toast } from "react-toastify";
 import Image from "next/image";
 
 const CheckoutPage = () => {
-  const { items, cartTotal ,emptyCart} = useCart();
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [telefono, setTelefono] = useState("");
+
+  const [error, setError] = useState(false);
+  const { items, cartTotal, emptyCart } = useCart();
   const total = cartTotal / 36;
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    // Validación del Formulario
+    if ([nombre, apellido, email, telefono].includes("")) {
+      console.log("Hay Al Menos un campo vacio");
+
+      setError(true);
+      return;
+    }
+
+    setError(false);
+
+    // Reiniciar el form
+    setNombre("");
+    setApellido("");
+    setEmail("");
+    setTelefono("");
+  };
 
   return (
     <Layout title="Checkout" pageDescription="Página de Checkout">
@@ -75,6 +101,11 @@ const CheckoutPage = () => {
             </div>
             <div className="py-12 bg-white md:py-24">
               <div className="max-w-lg px-4 mx-auto lg:px-8">
+                {error && (
+                  <div className="bg-red-800 text-white text-center p-3 uppercase font-bold mb-3 rounded-md">
+                    <p>Todos los campos son obligatorios</p>
+                  </div>
+                )}
                 <form className="flex flex-col">
                   <div className="col-span-3">
                     <label
@@ -87,6 +118,8 @@ const CheckoutPage = () => {
                       className="rounded-lg shadow-sm border-gray-200 w-full text-sm p-2.5"
                       type="text"
                       id="frst_name"
+                      value={nombre}
+                      onChange={(e) => setNombre(e.target.value)}
                     />
                   </div>
                   <div className="col-span-3">
@@ -100,6 +133,8 @@ const CheckoutPage = () => {
                       className="rounded-lg shadow-sm border-gray-200 w-full text-sm p-2.5"
                       type="text"
                       id="last_name"
+                      value={apellido}
+                      onChange={(e) => setApellido(e.target.value)}
                     />
                   </div>
                   <div className="col-span-6">
@@ -113,6 +148,8 @@ const CheckoutPage = () => {
                       className="rounded-lg shadow-sm border-gray-200 w-full text-sm p-2.5"
                       type="email"
                       id="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className="col-span-6">
@@ -126,9 +163,12 @@ const CheckoutPage = () => {
                       className="rounded-lg shadow-sm border-gray-200 w-full text-sm p-2.5 mb-3"
                       type="tel"
                       id="phone"
+                      value={telefono}
+                      onChange={(e) => setTelefono(e.target.value)}
                     />
                   </div>
                   <PayPalButtons
+                    onClick={handleSubmit}
                     createOrder={(data, actions) => {
                       return actions.order.create({
                         purchase_units: [
@@ -143,7 +183,7 @@ const CheckoutPage = () => {
                     onApprove={(data, actions) => {
                       return actions.order!.capture().then((details) => {
                         emptyCart();
-                        toast.success("Pago realizado correctamente!")
+                        toast.success("Pago realizado correctamente!");
                       });
                     }}
                   />

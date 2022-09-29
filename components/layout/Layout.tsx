@@ -25,7 +25,7 @@ export const Layout: FC<Props> = ({ children, title, pageDescription }) => {
       </Head>
       <Navbar />
       <main className="bg-white">{children}</main>
-      <footer className="h-full">
+      <footer className="h-ful">
         <Footer />
       </footer>
       <ToastContainer/>
