@@ -14,27 +14,27 @@ const CheckoutPage = () => {
 
   const [error, setError] = useState(false);
   const { items, cartTotal, emptyCart } = useCart();
-  const total = cartTotal / 36;
+  const total = Math.round( cartTotal / 36);
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
+  // const handleSubmit = (e: any) => {
+  //   e.preventDefault();
 
-    // Validación del Formulario
-    if ([nombre, apellido, email, telefono].includes("")) {
-      console.log("Hay Al Menos un campo vacio");
+  //   // Validación del Formulario
+  //   if ([nombre, apellido, email, telefono].includes("")) {
+  //     console.log("Hay Al Menos un campo vacio");
 
-      setError(true);
-      return;
-    }
+  //     setError(true);
+  //     return;
+  //   }
 
-    setError(false);
+  //   setError(false);
 
-    // Reiniciar el form
-    setNombre("");
-    setApellido("");
-    setEmail("");
-    setTelefono("");
-  };
+  //   // Reiniciar el form
+  //   setNombre("");
+  //   setApellido("");
+  //   setEmail("");
+  //   setTelefono("");
+  // };
 
   return (
     <Layout title="Checkout" pageDescription="Página de Checkout">
@@ -168,7 +168,6 @@ const CheckoutPage = () => {
                     />
                   </div>
                   <PayPalButtons
-                    onClick={handleSubmit}
                     createOrder={(data, actions) => {
                       return actions.order.create({
                         purchase_units: [
